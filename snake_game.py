@@ -91,9 +91,9 @@ class snake():
                     c.pos = (c.r-1, c.pos[1])
                 elif c.dx == 1 and c.pos[0] >= c.r-1:
                     c.pos = (0, c.pos[1])
-                elif c.dx == 1 and c.pos[1] >= c.r-1:
+                elif c.dy == 1 and c.pos[1] >= c.r-1:
                     c.pos = (c.pos[0], 0)
-                elif c.dx == -1 and c.pos[1] <= 0:
+                elif c.dy == -1 and c.pos[1] <= 0:
                     c.pos = (c.pos[0], c.r-1)
                 else:
                     c.move(c.dx, c.dy)
@@ -137,8 +137,6 @@ def redrawwin(surface):
     lfont=pygame.font.SysFont('comicsans',50)
     txt=lfont.render('Score: '+str(len(s.body)-1),1,(0,0,0))
     surface.blit(txt, (200,10))
-    pygame.draw.rect(surface, (0,0,0), (0, 0, 500, 5))
-    pygame.draw.rect(surface, (0,0,0), (0, 495, 500, 5))
     pygame.display.update()
 
 def snack(r, item):
